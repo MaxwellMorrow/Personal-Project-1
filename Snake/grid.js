@@ -1,3 +1,5 @@
+
+
 const GRID_SIZE = 21
 
 export function randomGridPosition(){

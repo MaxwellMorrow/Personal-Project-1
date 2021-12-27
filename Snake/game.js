@@ -15,8 +15,12 @@ const gameBoard = document.getElementById("game-board")
 
 function main(currentTime) {
     if (gameOver){
-        return alert("you lose")
+        if (confirm("You lost. Press ok to restart.")){
+            window.location.href ="snakeindex.html"
+        }
+        return
     }
+
     window.requestAnimationFrame(main)
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
    if( secondsSinceLastRender < 1 / SNAKE_SPEED)
@@ -39,5 +43,5 @@ drawSnake(gameBoard)
 drawFood(gameBoard)
 }
 function checkDeath(){
-    gameOver = outsideGrid(getSnakeHead)|| snakeIntersection()
+    gameOver = outsideGrid(getSnakeHead()) || snakeIntersection()
 }
