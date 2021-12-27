@@ -41,10 +41,6 @@ margin-top: 2em;
 }
 
 .pipe{
-    --pipe-width:120;
-    --pipe-left:120;
-    --hole-top:200;
-    --hole-height: 120;
     position: absolute;
     top: 0;
     bottom: 0;

@@ -1,11 +1,13 @@
 
 const HOLE_HEIGHT = 400 
-let pipes = []
-const PIPE_INTERVAL = 1500
-let timeSinceLastPipe
-const PIPE_SPEED = .75
 const PIPE_WIDTH= 120
+const PIPE_INTERVAL = 1500
+const PIPE_SPEED = 0.75
+let pipes = []
+let timeSinceLastPipe
 let passedPipeCount
+
+
 
 
 export function setupPipes(){
@@ -17,9 +19,6 @@ export function setupPipes(){
 }
 
 
-
-
-
 export function updatePipes(delta){
     timeSinceLastPipe += delta
 
@@ -27,6 +26,7 @@ export function updatePipes(delta){
     timeSinceLastPipe -= PIPE_INTERVAL
     createPipe()
     }
+
     pipes.forEach(pipe=> {
         if (pipe.left + PIPE_WIDTH < 0) {
             passedPipeCount++
@@ -50,11 +50,16 @@ function createPipe() {
     pipeElem.append(bottomElem)
     pipeElem.classList.add("pipe")
     pipeElem.style.setProperty("--hole-top", 
-    randomNumberBetween(HOLE_HEIGHT * 1.5, 
-        window.innerHeight - HOLE_HEIGHT * 0.5))
+    randomNumberBetween(
+        HOLE_HEIGHT * 1.5, 
+        window.innerHeight - HOLE_HEIGHT * 0.5
+        )
+        )
         const pipe = {
-            get left(){
-                return parseFloat(getComputedStyle(pipeElem).getPropertyValue("--pipe-left"))
+            get left() {
+                return parseFloat(
+                    getComputedStyle(pipeElem).getPropertyValue("--pipe-left")
+                    )
             },
             set left(value) {
                 pipeElem.style.setProperty("--pipe-left",value)
@@ -62,7 +67,7 @@ function createPipe() {
             remove(){
                 pipes = pipes.filter(p => p !== pipe)
                 pipeElem.remove()
-            },
+            },    
             rects(){
                 return [
                     topElem.getBoundingClientRect(),
