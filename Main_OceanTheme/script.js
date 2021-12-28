@@ -27,28 +27,28 @@ async function setupTrash(){
     const trashAmount = {
         xxl:{
             amount: parseInt(`${stringifiedAmount[0]}${stringifiedAmount[1]}`),
-            icon: "bag"
+            icon: "bag",
         },
         xl:{
             amount: parseInt(stringifiedAmount[2]),
-            icon: "takeout"
+            icon: "takeout",
         },
         lg:{
             amount: parseInt(stringifiedAmount[3]),
-            icon:"headphones"
+            icon:"headphones",
         },
         md:{
             amount: parseInt(stringifiedAmount[4]),
-            icon:"phone"
+            icon:"phone",
         },
         sm:{
             amount: parseInt(stringifiedAmount[5]),
-            icon:"toy"
+            icon:"toy",
         },
         xs:{
             amount: parseInt(stringifiedAmount[6]),
-            icon:"liquor"
-        }
+            icon:"liquor",
+        },
     }
     console.log(trashAmount, amountLeftToRaise)
     Object.values(trashAmount).forEach(({amount, icon}) => {
@@ -65,7 +65,7 @@ const img = document.createElement("img")
 const top = randonNumberBetween(0,50)
 const size = top / 5 + 1
 img.classList.add("trash")
-img.src = `/imgs/${icon}.svg`
+img.src = `./imgs/${icon}.svg`
 img.style.width = `${size}vmin`
 img.style.height = `${size}vmin`
 img.style.top = `${top}vh`
